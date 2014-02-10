@@ -1,5 +1,7 @@
 <?php
 
+require_once dirname($_SERVER['DOCUMENT_ROOT']) . '/protected/etc/config.base.php';
+
 // error_reporting(E_ALL); ini_set('display_errors', 1); // uncomment this line for debugging
 
 /**
@@ -364,7 +366,7 @@ class Securimage
      *
      * @var string
      */
-    public $database_driver = self::SI_DRIVER_SQLITE3;
+    public $database_driver = self::SI_DRIVER_MYSQL;
 
     /**
      * Database host to connect to when using mysql or postgres
@@ -373,7 +375,7 @@ class Securimage
      *
      * @var string
      */
-    public $database_host   = 'localhost';
+    public $database_host   = DB_HOST;
 
     /**
      * Database username for connection (mysql, postgres only)
@@ -381,7 +383,7 @@ class Securimage
      *
      * @var string
      */
-    public $database_user   = '';
+    public $database_user   = DB_USER;
 
     /**
      * Database password for connection (mysql, postgres only)
@@ -389,7 +391,7 @@ class Securimage
      *
      * @var string
      */
-    public $database_pass   = '';
+    public $database_pass   = DB_PASS;
 
     /**
      * Name of the database to select (mysql, postgres only)
@@ -397,7 +399,7 @@ class Securimage
      * @see Securimage::$database_file for SQLite
      * @var string
      */
-    public $database_name   = '';
+    public $database_name   = DB_NAME;
 
     /**
      * Database table where captcha codes are stored
@@ -461,7 +463,7 @@ class Securimage
      * @deprecated 3.2RC4
      * @var string
      */
-    public $sqlite_database = true;
+    public $sqlite_database;
     /**
      * The path to the securimage audio directory, can be set in securimage_play.php
      * @var string
@@ -595,7 +597,7 @@ class Securimage
      *
      * @var bool If true (default) headers will be sent, if false, no headers are sent
      */
-    protected $send_headers = false;
+    protected $send_headers;
 
     /**
      * PDO connection when a database is used
