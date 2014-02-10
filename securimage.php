@@ -355,7 +355,7 @@ class Securimage
      * @see Securimage::$database_driver
      * @var bool
      */
-    public $use_database = false;
+    public $use_database = true;
 
     /**
      * Database driver to use for database support.
@@ -461,7 +461,7 @@ class Securimage
      * @deprecated 3.2RC4
      * @var string
      */
-    public $sqlite_database;
+    public $sqlite_database = true;
     /**
      * The path to the securimage audio directory, can be set in securimage_play.php
      * @var string
@@ -588,14 +588,14 @@ class Securimage
      *
      * @var bool If true, no session will be started; if false, session will be started and used to store data (default)
      */
-    protected $no_session;
+    protected $no_session = true;
 
     /**
      * Flag indicating whether or not HTTP headers will be sent when outputting captcha image/audio
      *
      * @var bool If true (default) headers will be sent, if false, no headers are sent
      */
-    protected $send_headers;
+    protected $send_headers = false;
 
     /**
      * PDO connection when a database is used
